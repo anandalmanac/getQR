@@ -46,8 +46,10 @@ export default CheckOut
 
 const Container=styled.div`
 
+
+padding: 100px 0;
 width: 100%;
-height: 100vh;
+min-height: calc(100vh - 200px);
 background-color: #EAECF8;
 display: flex;
 justify-content: center;
@@ -102,6 +104,31 @@ h1{
             font-weight: 300;
         }
         
+    }
+}
+@media screen and (max-width:1000px){
+    h1{
+        font-size: 30px;
+    }
+    .qr-ideas{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+        grid-template-rows: auto;
+        
+        div{
+            padding: 8px;
+            h3{
+                font-size: 16px;
+                text-align: center;
+            }
+            p{
+                font-size: 13px;
+            }
+            svg{
+                height: 30px;
+                width: 30px;
+            }
+        }
     }
 }
 

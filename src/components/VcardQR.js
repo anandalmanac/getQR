@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import gsap from 'gsap';
 import File from './File'
 
-function WifiQR() {
+function VcardQR() {
     
 
-    const[wifiID,setWifiID]=useState('');
+    const[fname,setfname]=useState('');
     const[password,setPassword]=useState('');
     const[encryption,setEncryption]=useState('');
     const[hidden,setHidden]=useState(false);
@@ -25,14 +25,14 @@ function WifiQR() {
     useEffect(()=>{
         
 
-    },[wifiID])
+    },[fname])
 
 
     const handleClick=(e)=>{
         e.preventDefault()
         
         setFormdata({
-            wifiID:wifiID,
+            fname:fname,
             password:password,
             encryption:encryption
         })
@@ -86,13 +86,13 @@ function WifiQR() {
 
         </div> */}
             <div>
-                <h1>Wifi QR</h1>
+                <h1>V Card QR</h1>
                 <div className="row">
                     <p className="label">Wifi ID<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
-                            <input type={hidden?'password':'text'} placeholder='Enter your SSID or Username' value={wifiID} onChange={(e)=>setWifiID(e.target.value)} /> 
-                            <p>Hidden</p> <input type="checkbox" onClick={()=>setHidden(!hidden)} />
+                            <input type={hidden?'password':'text'} placeholder='Enter first name' value={fname} onChange={(e)=>setfname(e.target.value)} /> 
+                            <input type="text" placeholder='enter second name' />
                         
                         
                         
@@ -100,11 +100,11 @@ function WifiQR() {
                         </div>
                 </div>
                 <div className="row">
-                    <p className="label">Password<span style={{paddingLeft:12}}>:</span></p>
+                    <p className="label">Contact<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
-                            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Enter your password'/> 
-                            
+                            <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='enter phone number'/> 
+                            <input type="text" placeholder='enter FAX' />    
                         
                         
                         
@@ -114,19 +114,113 @@ function WifiQR() {
 
 
                 <div className="row">
-                    <p className="label">Encryption<span style={{paddingLeft:12}}>:</span></p>
+                    <p className="label">Email id<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
                             
-                            <input type="radio" onClick={()=>setEncryption('None')} /><p>None</p> 
-                            <input type="radio" onClick={()=>setEncryption('WPA3/WPA2')}  /><p>WPA3/WPA2</p> 
-                            <input type="radio" onClick={()=>setEncryption('WEP')}  /><p>WEP</p> 
+                            <input type="text" placeholder='Enter email id' />
                         
                         
                         
                         </div>
                         </div>
                 </div>
+                <div className="row">
+                    <p className="label">Company<span style={{paddingLeft:12}}>:</span></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='company name' />
+                            <input type="text" placeholder='Your role' />
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+                <div className="row">
+                    <p className="label">Address<span style={{paddingLeft:12}}>:</span></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='Building no,street' />
+                           
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+                <div className="row">
+                    <p className="label"></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='city' />
+                            <input type="text" placeholder='Zip code' />
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+                <div className="row">
+                    <p className="label">State<span style={{paddingLeft:12}}>:</span></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='Enter your state' />
+                           
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+                <div className="row">
+                    <p className="label">Country<span style={{paddingLeft:12}}>:</span></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='Enter your country' />
+                           
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+
+                <div className="row">
+                    <p className="label">Website<span style={{paddingLeft:12}}>:</span></p>
+                        <div className="inputs">
+                            <div className="inputwrap">
+                                
+                                <input type="text" placeholder='www.enteryourwebsite.com' />
+                            
+                            
+                            
+                            
+                            </div>
+                            </div>
+                        
+                </div>
+                <div className="row">
+                    <p className="label">Any note<span style={{paddingLeft:12}}>:</span></p>
+                    <div className="inputs">
+                        <div className="inputwrap">
+                            
+                            <input type="text" placeholder='' />
+                           
+                        
+                        
+                        
+                        </div>
+                        </div>
+                </div>
+                
+                
+                
             </div>
 
 
@@ -139,7 +233,7 @@ function WifiQR() {
     )
 }
 
-export default WifiQR
+export default VcardQR
 
 
 const Container=styled.form`

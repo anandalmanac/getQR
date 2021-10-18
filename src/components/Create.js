@@ -21,14 +21,14 @@ function Create() {
                 </SideBar>
                 <div className="contents-wrap">
                     <div className="content-1 contents">
-                         <div className="left">
+                         <div className="left-create">
                             <h1>Select which type</h1>
                             <h4>
                                 
 You may choose from URL, vCard, Plain Text, Email, SMS, Twitter, WiFi, and Bitcoin. However, these free QR Codes are not editable and trackable.
                             </h4>
                         </div>
-                            <div className="right">
+                            <div className="right-create">
                                                                 <div className='link-img'>
                                     <svg width="172" height="53" viewBox="0 0 172 53" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="172" height="53" rx="26.5" fill="#8566FF"/>
@@ -121,14 +121,14 @@ You may choose from URL, vCard, Plain Text, Email, SMS, Twitter, WiFi, and Bitco
                     </div>
                 <div className="content-2 contents">
                                       
-                         <div className="left">
+                         <div className="left-create">
                             <h1>Select which type</h1>
                             <h4>
                                 
 You may choose from URL, vCard, Plain Text, Email, SMS, Twitter, WiFi, and Bitcoin. However, these free QR Codes are not editable and trackable.
                             </h4>
                         </div>
-                            <div className="right">
+                            <div className="right-create">
                                 
                                 <div className='circle-2'>
                                 <img src="circle.svg" alt="" />
@@ -155,14 +155,14 @@ You may choose from URL, vCard, Plain Text, Email, SMS, Twitter, WiFi, and Bitco
 
                 </div>
                 <div className="content-3 contents">
-                            <div className="left">
+                            <div className="left-create">
                             <h1>Select which type</h1>
                             <h4>
                                 
 You may choose from URL, vCard, Plain Text, Email, SMS, Twitter, WiFi, and Bitcoin. However, these free QR Codes are not editable and trackable.
                             </h4>
                         </div>
-                            <div className="right">
+                            <div className="right-create">
 
                                 <div className='circle-1'>
                                 <img src="circle.svg" alt="" />
@@ -203,7 +203,8 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
-
+overflow: hidden;
+padding-bottom: 100px;
 
 
 
@@ -215,6 +216,12 @@ align-items: center;
     margin-bottom: 100px;
 }
 
+
+@media screen and (max-width:900px){
+    .heading{
+        font-size: 30px;
+    }
+}
 `
 
 
@@ -222,6 +229,7 @@ align-items: center;
 const Content=styled.div`
 width: 80%;
 min-height:200vh;
+
 
 display: flex;
 .contents-wrap{
@@ -236,7 +244,7 @@ display: flex;
     display: flex;
     justify-content: space-between;
 
-    .right{
+    .right-create{
         position: relative;
         .link-img{
             position: absolute;
@@ -302,7 +310,7 @@ display: flex;
         
         
     } 
-    .left{
+    .left-create{
         
         width: 100%;
         display: flex;
@@ -330,13 +338,13 @@ display: flex;
     flex-direction: row-reverse;
     margin-top: 250px;
     margin-left:40px;
-    .left{
+    .left-create{
         align-items: flex-end;
         h1,h4{
             text-align:right;
         }
     }
-    .right{
+    .right-create{
         margin-top: 130px;
         margin-left: 50px;
         .nav-img{
@@ -380,11 +388,11 @@ display: flex;
         height: 900px;
    
     margin-top: 100px;
-    .left{
+    .left-create{
        margin-left: 250px;
         
     }
-    .right{
+    .right-create{
         margin-top: 130px;
         margin-left: 50px;
         .nav-img{
@@ -430,6 +438,129 @@ display: flex;
     
 
 
+@media screen and (max-width:1200px){
+    .contents{
+        margin-left: 100px;
+     
+        .left-create{
+            width: 300px;
+
+            h1{
+                width: 100% ;
+                font-size: 4vw;
+            }
+            h4{
+                width: 100%;
+                font-size: 1.5vw;
+            }
+        }
+        .right-create{
+            transform: scale(.6);
+        }
+    }
+    .content-2{
+       margin-left: 0px;
+        
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+            justify-content: space-between;
+            
+        .left-create{
+            margin-left: 0;
+           
+            
+            h1{
+               
+            }
+        }
+        .right-create{
+            
+        }
+
+    }
+    .content-3{
+        .left-create{
+            margin-left: 0;
+            width: 300px;
+        }
+    }
+
+
+
+    
+
+@media screen and (max-width:700px){
+    .contents{
+        margin-left:20px;
+        
+        
+     
+        .left-create{
+            width: 300px;
+
+            h1{
+                width: 100% ;
+                font-size: 20px;
+            }
+            h4{
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+        .right-create{
+            transform: scale(.6);
+        }
+    }
+    .content-2{
+       margin-left: 0px;
+       margin-top: 0;
+        
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+            justify-content: space-between;
+            
+        .left-create{
+            width: 300px;
+            margin-left: 0;
+           
+            
+            h1{
+                width: 160px;
+               
+            }
+        }
+        .right-create{
+            transform: scale(.4);
+            left: 300px;
+            z-index:-1;
+        
+        }
+
+    }
+    .content-3{
+        margin-top: 0px;
+        height: 600px;
+        .left-create{
+            
+            width: 300px !important;
+            h1,h4{
+                width: 160px;
+
+            }
+        }
+        .right-create{
+            margin-top: 0;
+            margin-left: -180px;
+            z-index:-1;
+            transform: scale(.35);
+        }
+    }
+}
+
+}
+
 
 
 
@@ -469,6 +600,17 @@ align-items: center;
     padding-top: 100px;
     
 }
+@media screen and (max-width:900px){
+    width:6px;
+    .top-img{
+        height: 30px;
+        transform: translateY(-28px);
+    }
+    .bottom-img{
+        height: 30px;
+        transform: translateY(128px) rotate(180deg);
+    }
+}
 
 `
 const Wrap=styled.div`
@@ -495,4 +637,15 @@ div{
     margin-bottom: 600px;
 }
 
+@media screen and (max-width:900px){
+    width:6px;
+    div{
+        width: 50px;
+        height: 50px;
+        margin-bottom: 450px;
+        h1{
+            font-size: 20px;
+        }
+    }
+}
 `

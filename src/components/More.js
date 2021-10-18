@@ -129,4 +129,47 @@ button{
     font-size: 36px;
     z-index:2;
 }
+
+@media screen and (max-width:700px){
+    width: 90%;
+    h1{
+        font-size: 30px;
+    }
+    p{
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .content{
+        
+        .right,.left{
+        margin: 0;
+        padding: 0;
+
+        h4{
+            font-size: 13px;
+            padding: 10px 20px;
+        }
+        input{
+            
+            margin-bottom: 10px;
+            height: 40px;
+            max-width: 160px;
+        }
+    }
+    }
+    
+}
+button{
+    
+   width: 160px;
+   height: 50px;
+   background-color:#8566FF;
+   border-radius: 50px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    z-index:2;
+}
 `

@@ -12,6 +12,9 @@ import { faAddressCard, faCoffee, faFileAlt, faLink } from '@fortawesome/free-so
 import 'font-awesome/css/font-awesome.min.css';
 import LinkQr from './LinkQr'
 import gsap from 'gsap';
+import EmailQR from './EmailQR'
+import VcardQR from './VcardQR';
+import BitcoinQR from './BitcoinQR';
 
 
 
@@ -67,7 +70,8 @@ useEffect(()=>{
     // let X=x-offset.x+43;
     // console.log(X,Y)
     // setClickbg({x:X,y:Y})
-    document.querySelector('.click-bg').style.marginTop=(88-12.5+a*50)+'px';
+    if(window.innerWidth>700){
+        document.querySelector('.click-bg').style.marginTop=(88-12.5+a*50)+'px';
         document.querySelectorAll('.side-bar svg').forEach((item)=>{
             item.classList.remove('active')
             
@@ -76,6 +80,18 @@ useEffect(()=>{
 
 
 
+    }else{
+        document.querySelector('.click-bg').style.marginTop=(94-12.5+a*44)+'px';
+        document.querySelectorAll('.side-bar svg').forEach((item)=>{
+            item.classList.remove('active')
+            
+        })
+        document.querySelectorAll('.side-bar svg')[a].classList.add('active')
+
+
+    }
+    
+
 }
 
     return (
@@ -83,7 +99,7 @@ useEffect(()=>{
         <Container >
             <Wrap className='qr-container'>
                 <LeftContent>
-                    <div className="click-bg" style={{backgroundColor:'#8566FF',width:'50px',height:'50px',position:'absolute',marginTop:78,marginLeft:57,transition:'all .3s ease-in-out'}}></div>
+                    <div className="click-bg" style={{backgroundColor:'#8566FF',}}></div>
                     <div className="side-bar">
                         <EmailOutlined id='email' className='active' onClick={(e)=>{setForm('email')
                         
@@ -148,9 +164,22 @@ useEffect(()=>{
                         
 
                     </div>
-                    {Form!=='link'&& Form!=='text'&&Form!=='app'?<WifiQR data={data[Form]}/>:<LinkQr data={data[Form]} />}
+                    {/* {Form!=='link'&& Form!=='text'&&Form!=='app'?<WifiQR data={data[Form]}/>:<LinkQr data={data[Form]} />} */}
                     
-
+                        {
+                        Form==='wifi'?
+                        <WifiQR />:
+                        Form==='email'?
+                        <EmailQR />:
+                        Form==='vcard'?
+                        <VcardQR />:
+                        Form==='bitcoin'?
+                        <BitcoinQR />:null
+                        
+                    
+                    
+                    }
+                    {Form!=='link'&& Form!=='text'&&Form!=='app'?null:<LinkQr data={data[Form]} />}
             
 
                 </LeftContent>
@@ -160,7 +189,7 @@ useEffect(()=>{
 </svg>
 
                     <div className="img-wrap">
-                        <img src="gr.png" alt="" />
+                        <img src="data:image/png;base64,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" alt="" />
 
                     </div>
                     <div className="content-wrap">
@@ -226,6 +255,13 @@ overflow: hidden;
 
 transition: all 3s ease-in-out;
 
+
+@media screen and (max-width:700px){
+    width: 95%;
+    flex-direction:column;
+    border-radius: 20px;
+}
+
 `
 const LeftContent=styled.div`
 flex: 60%;
@@ -233,6 +269,12 @@ display: flex;
 
 .click-bg{
     border-radius: 50px;
+    width:50px;
+    height:50px;
+    position:absolute;
+    margin-top:78px;
+    margin-left:57px;
+    transition:all .3s ease-in-out;
 }
 .side-bar{
     padding-top: 30px;
@@ -264,7 +306,22 @@ display: flex;
     
 
 }
-
+@media screen and (max-width:700px){
+    
+    .side-bar{
+        margin-left: 6px;
+        width: 36px;
+        svg{
+            height: 14px;
+        }
+    }
+    .click-bg{
+        width: 30px  !important;
+        height: 30px !important;
+    margin-left:11px !important;
+    margin-top: 82px ;
+}
+}
 `
 const RightContent=styled.div`
 flex: 40%;
@@ -325,7 +382,14 @@ position: relative;
 
 .img-wrap{
     padding: 30px 0px;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
     img{
+
+        height: 100%;
         padding: 10px;
         
         box-shadow: 0px 12px 20px #344fa152;
@@ -390,6 +454,43 @@ position: relative;
         font-size: 14px;
         font-weight: 400;
         text-align:center;
+    }
+}
+
+@media screen and (max-width:700px){
+    border-radius: 0 0 50px 50px;
+    .content-wrap{
+        .shape-color{
+            width: 80%;
+            height: 50px;
+            margin-bottom: 20px;
+            p{
+                font-size: 13px;
+            }
+            svg{
+                height: 13px;
+                width: 13px;
+            }
+        }
+        .links{
+            padding: 0 30px;
+            div{
+                h3{
+                    font-size: 13px;
+                }
+                h5{
+                    font-size: 10px;
+                }
+                svg{
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+    .SVG{
+        margin-left: 4px;
     }
 }
 

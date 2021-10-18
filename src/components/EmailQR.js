@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import gsap from 'gsap';
 import File from './File'
 
-function WifiQR() {
+function EmailQR() {
     
 
-    const[wifiID,setWifiID]=useState('');
-    const[password,setPassword]=useState('');
-    const[encryption,setEncryption]=useState('');
-    const[hidden,setHidden]=useState(false);
+    const[emailID,setEmailID]=useState('');
+    const[subject,setSubject]=useState('');
+    const[body,setBody]=useState('');
+    
     
     const[formdata,setFormdata]=useState({});
 
@@ -22,19 +22,15 @@ function WifiQR() {
         t1.fromTo('.form-container',{opacity:0},{opacity:1,duration:1})
     },[])
 
-    useEffect(()=>{
-        
-
-    },[wifiID])
 
 
     const handleClick=(e)=>{
         e.preventDefault()
         
         setFormdata({
-            wifiID:wifiID,
-            password:password,
-            encryption:encryption
+            emailID:emailID,
+            subject:subject,
+            body:body
         })
         
 
@@ -52,47 +48,15 @@ function WifiQR() {
        
         <Container className='form-container'>
             
-        {/* <div>
-             <h1>{data[0].heading}</h1>
-           {data.map((item,i)=>i>0?<div className='row' style={{display:'flex'}}>
-               <p className='label'>{item.label}<span style={{paddingLeft:12}}>{item.label?':':null}</span></p>
-               <div className='inputs' >
-                   <div className="inputwrap">
 
-                  
-               {Object.keys(item.inputs).map((key)=><>
-           
-                 
-
-                
-                   
-                    {item.inputs[key].map((a)=>key!=='file'?<><p>{key!=='radio'&&key!=='checkbox'?null:a}</p>{key==='textarea'?<textarea placeholder={a} />:<input type={key} placeholder={key!=='radio'&&key!=='checkbox'?a:''}></input>}</>:<div className='input-file'><File /></div>)}
-               
-               
-                
-               
-               </>
-                
-               )}
-               </div >
-                </div>
-               
-               
-              
-               
-               
-               </div>:null)}
-
-
-        </div> */}
             <div>
-                <h1>Wifi QR</h1>
+                <h1>Email QR</h1>
                 <div className="row">
-                    <p className="label">Wifi ID<span style={{paddingLeft:12}}>:</span></p>
+                    <p className="label">Email ID<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
-                            <input type={hidden?'password':'text'} placeholder='Enter your SSID or Username' value={wifiID} onChange={(e)=>setWifiID(e.target.value)} /> 
-                            <p>Hidden</p> <input type="checkbox" onClick={()=>setHidden(!hidden)} />
+                            <input type='text' placeholder='Enter your email id' value={emailID} onChange={(e)=>setEmailID(e.target.value)} /> 
+                           
                         
                         
                         
@@ -100,10 +64,10 @@ function WifiQR() {
                         </div>
                 </div>
                 <div className="row">
-                    <p className="label">Password<span style={{paddingLeft:12}}>:</span></p>
+                    <p className="label">Subject<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
-                            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Enter your password'/> 
+                            <input type="text" value={subject} onChange={(e)=>setSubject(e.target.value)} placeholder='Enter your subject'/> 
                             
                         
                         
@@ -114,13 +78,11 @@ function WifiQR() {
 
 
                 <div className="row">
-                    <p className="label">Encryption<span style={{paddingLeft:12}}>:</span></p>
+                    <p className="label">Body<span style={{paddingLeft:12}}>:</span></p>
                     <div className="inputs">
                         <div className="inputwrap">
-                            
-                            <input type="radio" onClick={()=>setEncryption('None')} /><p>None</p> 
-                            <input type="radio" onClick={()=>setEncryption('WPA3/WPA2')}  /><p>WPA3/WPA2</p> 
-                            <input type="radio" onClick={()=>setEncryption('WEP')}  /><p>WEP</p> 
+                            <textarea name="" id="" cols="30" rows="10" placeholder='enter your body' value={body} onChange={(e)=>setBody(e.target.value)}></textarea>
+                           
                         
                         
                         
@@ -139,7 +101,7 @@ function WifiQR() {
     )
 }
 
-export default WifiQR
+export default EmailQR
 
 
 const Container=styled.form`

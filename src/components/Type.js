@@ -251,4 +251,47 @@ button{
     z-index:2;
 }
 
+@media screen and (max-width:700px){
+    width: 95%;
+    .head{
+        padding: 0;
+        h1{
+            font-size: 30px;
+            padding-bottom:20px ;
+        }
+        h4{
+            font-size: 16px;
+        }
+    }
+    .types{
+        
+        grid-row-gap: 30px;
+       .type{
+           height: 200px;
+           div{
+            h2{
+            font-size: 20px;
+             }
+             svg{
+                 height: 20px;
+                 width: 40px;
+            }
+            
+           }
+           p{
+                font-size: 16px;
+            }
+       }
+    }
+}
+button{
+    margin-top: 100px;
+     
+   width: 160px;
+   height: 60px;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
 `

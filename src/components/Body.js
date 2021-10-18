@@ -9,7 +9,7 @@ import Footer from './Footer'
 
 function Body() {
     return (
-        <div>
+        <div style={{paddingTop:'130px'}}>
             <QR />
             <CheckOut />
             <Create />

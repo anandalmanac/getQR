@@ -52,6 +52,7 @@ margin-bottom: 100px;
 
 
 
+
 `
 const Wrap=styled.div`
 width: 80%;
@@ -107,5 +108,59 @@ button{
     font-weight: 700;
     font-size: 36px;
     z-index:2;
+}
+
+
+@media screen and (max-width:700px){
+    h1{
+    color: #344FA1;
+    font-weight: 700;
+    font-size: 46px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid #8566FF;
+    
+    padding-top: 10px;
+    margin: 20px 0px 50px 0px;
+    .left{
+        padding-right: 0px;
+        border-right: none;
+        padding-top: 50px;
+    }
+    .right{
+        padding-left: 0px;
+        border-left: none;
+         padding-top: 50px;
+    }
+
+
+
+    h1{
+        font-size: 26px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    p{
+        color: #344FA1;
+        font-weight: 400;
+        font-size: 16px;
+        padding-bottom: 70px;
+        text-align: center;
+    }
+}
+
+button{
+    
+   width: 160px;
+   height: 60px;
+
+    font-weight: 600;
+    font-size: 16px;
+ 
+}
+
 }
 `

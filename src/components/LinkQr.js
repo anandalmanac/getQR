@@ -80,6 +80,16 @@ button{
     align-self:flex-end;
 }
 
+@media screen and (max-width:700px){
+    padding: 80px 10px 0 10px;
+    h1{
+        font-size: 30px;
+    }
+    p{
+        font-size: 12px;
+    }
+}
+
 `
 
 const TextContainer=styled.div`
@@ -100,5 +110,13 @@ p{
     color:#344FA1B2;
     font-size: 14px;
     font-weight:400;
+}
+@media screen and (max-width:700px){
+    h1{
+        font-size:30px;
+    }
+    p{
+        font-size: 13px;
+    }
 }
 `

@@ -107,4 +107,41 @@ justify-content: center;
     margin: 100px;
 }
 
+@media screen and (max-width:700px){
+    flex-direction: column;
+    .col{
+        box-sizing:border-box;
+        margin: 0;
+        padding: 20;
+        h1{
+            font-size:30px;
+        }
+        h3{
+            font-size: 16px;
+        }
+    }
+    .col-1{
+        
+        width: 60%;
+        box-sizing:border-box;
+        justify-self:center;
+        align-self:center;
+        
+        img{
+            height: 60px;
+        }
+        .logos{
+            margin-top: 20px;
+            svg{
+                height: 30px;
+            }
+        }
+    
+    margin: 0px;
+    margin-bottom: 100px;
+}
+}
+
+
+
 `
